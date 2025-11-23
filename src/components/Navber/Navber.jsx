@@ -4,7 +4,7 @@ import doller from '../../assets/dollar-1.png';
 
 const Navber = () => {
     return (
-        <div className="navbar w-[1200px] mx-auto">
+        <div className="navbar w-full md:w-[1200px] mx-auto">
             <div className="flex-1">
                 <img src={navlogo} alt="Logo Not Found" />
             </div>

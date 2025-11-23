@@ -8,7 +8,7 @@ const Available = ({ PlayerPromise }) => {
     const PlayerData = use(PlayerPromise);
     console.log(PlayerData);
     return (
-        <div className='w-[1200px] mx-auto grid grid-cols-3 gap-4 mt-10'>
+        <div className=' w-full md:w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-10'>
 
             {/* Card section */}
 
@@ -16,7 +16,7 @@ const Available = ({ PlayerPromise }) => {
             {
                 PlayerData.map(Player => <div className="card bg-base-100 shadow-sm">
                     <figure>
-                        <img className='px-3 pt-3 rounded-3xl h-[300px] w-full object-cover'
+                        <img className='px-3 pt-3 rounded-3xl  md:h-[300px] w-full object-cover'
                             src={Player.player_image} />
                     </figure>
                     <div className="card-body -ml-1.5">

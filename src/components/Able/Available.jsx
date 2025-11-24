@@ -1,75 +1,16 @@
 import React, { use } from 'react';
-import playerIconLogo from '../../assets/user-1.png'
-import flag from '../../assets/report-1.png'
+import PlayerCard from '../PlayerCard/PlayerCard';
 
 
-const Available = ({ PlayerPromise }) => {
+const Available = ({ PlayerPromise,available,setavailable,selectedPlayer,setselectedPlayer }) => {
     //console.log(PlayerPromise);
     const PlayerData = use(PlayerPromise);
-    console.log(PlayerData);
+    //console.log(PlayerData);
     return (
         <div className=' w-full md:w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-10'>
-
-            {/* Card section */}
-
-
             {
-                PlayerData.map(Player => <div className="card bg-base-100 shadow-sm">
-                    <figure>
-                        <img className='px-3 pt-3 rounded-3xl  md:h-[300px] w-full object-cover'
-                            src={Player.player_image} />
-                    </figure>
-                    <div className="card-body -ml-1.5">
-                        <div className='flex mb-2 items-center'>
-                            <img className='mr-2' src={playerIconLogo} alt="" />
-                            <p className='font-semibold text-[1.2rem]'>{Player.player_name}</p>
-                        </div>
-
-                        <div className='border-b-2 border-gray-100 pb-3  flex justify-between items-center'>
-                            <div className='flex items-center ml-1.5'>
-                                <img className='mr-4 mt-3 w-6.5' src={flag} alt="Flag Image Not Found" />
-                                <p className='text-[1.3rem] text-gray-400'>{Player.player_country}</p>
-                            </div>
-                            <div>
-                                <button className='btn px-4 rounded-[11px] '>{Player.playing_role}</button>
-                            </div>
-                        </div>
-
-
-
-                        <div>
-
-                            <div className='flex justify-between items-center mb-2'>
-                                <p className='font-bold text-[1.3rem]'>Rating</p>
-                                <span className='font-medium text-[1.3rem]'>{Player.rating}</span>
-                            </div>
-
-                            <div className='flex justify-between items-center mb-2'>
-                                <p className='font-bold text-[1.3rem]'>Batting Style</p>
-                                <span className='font-medium text-[1.3rem]'>{Player.batting_style}</span>
-                            </div>
-
-                            <div className='flex justify-between items-center mb-2'>
-                                <p className='font-bold text-[1.3rem]'>Bowling Style</p>
-                                <span className='font-medium text-[1.3rem]'>{Player.bowling_style}</span>
-                            </div>
-
-                            <div className='flex justify-between items-center'>
-                                <p className='font-bold text-[1.3rem]'>Price: <span>${Player.price}</span></p>
-                                <button className='btn py-1 px-5 rounded-[11px] '>Choose Player</button>
-                            </div>
-
-
-
-
-
-                            {/* <button className="btn btn-primary">Buy Now</button> */}
-                        </div>
-                    </div>
-                </div>)
+                PlayerData.map(Player => <PlayerCard selectedPlayer={selectedPlayer} setselectedPlayer={setselectedPlayer} Player={Player} available={available} setavailable={setavailable}></PlayerCard>)
             }
-
-            {/* End Card section */}
         </div>
     );
 };

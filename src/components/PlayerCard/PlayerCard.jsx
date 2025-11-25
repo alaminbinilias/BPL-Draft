@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import playerIconLogo from '../../assets/report-1.png'
 import flag from '../../assets/user-1.png'
 
 
-const PlayerCard = ({ Player, setavailable, available,selectedPlayer,setselectedPlayer }) => {
 
-    const [isSelected, setisSelected] = useState(false);
+const PlayerCard = ({Player, setavailable, available,selectedPlayer,setselectedPlayer }) => {
+
+
+    const[isSelected ,setisSelected]=useState(false);
 
     const btnhandle = (Player) => {
         //console.log(Player);

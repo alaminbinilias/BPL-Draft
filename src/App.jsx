@@ -22,7 +22,7 @@ function App() {
     <>
       <Navber available={available}></Navber>
 
-      <ForAll setToggle={setToggle} toggle={toggle}></ForAll>
+      <ForAll selectedPlayer={selectedPlayer} setToggle={setToggle} toggle={toggle}></ForAll>
 
       {
         toggle === true ? <Suspense fallback={<span className="loading loading-ball loading-xl"></span>}>

@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import PlayerCard from '../PlayerCard/PlayerCard';
 
 
-const Available = ({ PlayerPromise,available,setavailable,selectedPlayer,setselectedPlayer }) => {
+const Available = ({PlayerPromise,available,setavailable,selectedPlayer,setselectedPlayer }) => {
     //console.log(PlayerPromise);
     const PlayerData = use(PlayerPromise);
     //console.log(PlayerData);

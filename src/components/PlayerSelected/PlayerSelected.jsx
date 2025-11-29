@@ -5,7 +5,6 @@ const PlayerSelected = ({p,removePlayer}) => {
     const PlyerBtnHnadle=()=>{
         removePlayer(p);
     }
-
     return (
         <div>
             <div className=' rounded-xl mb-2 p-3 border-2 border-gray-300 flex items-center justify-between'>

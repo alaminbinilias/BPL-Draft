@@ -26,6 +26,9 @@ function App() {
     setselectedPlayer(fltrData);
     setavailable(available+p.price)
   }
+  const AddPlayer=(p)=>{
+    setToggle(p);
+  }
   return (
     <>
       <Navber available={available}></Navber>
@@ -35,7 +38,7 @@ function App() {
       {
         toggle === true ? <Suspense fallback={<span className="loading loading-ball loading-xl"></span>}>
           <Available selectedPlayer={selectedPlayer} setselectedPlayer={setselectedPlayer} available={available} setavailable={setavailable} PlayerPromise={PlayerPromise}></Available>
-        </Suspense> : <Selected removePlayer={removePlayer} selectedPlayer={selectedPlayer}></Selected>
+        </Suspense> : <Selected AddPlayer={AddPlayer} removePlayer={removePlayer} selectedPlayer={selectedPlayer}></Selected>
       }
       <ToastContainer/>
     </>

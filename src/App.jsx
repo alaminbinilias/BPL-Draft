@@ -1,5 +1,6 @@
 import { Suspense, useState } from 'react';
 import './App.css'
+import { ToastContainer} from 'react-toastify';
 import Navber from './components/Navber/Navber'
 import Available from './components/Able/Available';
 import ForAll from './components/ForAll/ForAll';
@@ -18,6 +19,13 @@ function App() {
   const [available, setavailable] = useState(6000000);
   const [selectedPlayer, setselectedPlayer] = useState([]);
   //console.log(selectedPlayer);
+  const removePlayer=(p)=>{
+    //console.log(p);
+    const fltrData=selectedPlayer.filter(ply=>ply.player_name!==p.player_name);
+    //console.log(fltrData);
+    setselectedPlayer(fltrData);
+    setavailable(available+p.price)
+  }
   return (
     <>
       <Navber available={available}></Navber>
@@ -27,8 +35,9 @@ function App() {
       {
         toggle === true ? <Suspense fallback={<span className="loading loading-ball loading-xl"></span>}>
           <Available selectedPlayer={selectedPlayer} setselectedPlayer={setselectedPlayer} available={available} setavailable={setavailable} PlayerPromise={PlayerPromise}></Available>
-        </Suspense> : <Selected selectedPlayer={selectedPlayer}></Selected>
+        </Suspense> : <Selected removePlayer={removePlayer} selectedPlayer={selectedPlayer}></Selected>
       }
+      <ToastContainer/>
     </>
   )
 }

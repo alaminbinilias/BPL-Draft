@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import playerIconLogo from '../../assets/report-1.png'
 import flag from '../../assets/user-1.png'
+import { toast } from 'react-toastify';
 
 
 
@@ -14,11 +15,17 @@ const PlayerCard = ({Player, setavailable, available,selectedPlayer,setselectedP
         const price = Player.price;
         //console.log(price)
         if (available < price) {
-            alert("Insufficient Balance");
+            toast("Insufficient Balance");
+            setisSelected(false);
+            return;
+        }
+        if(selectedPlayer.length===6){
+            toast("Already Six Plyer is Now Available");
             setisSelected(false);
             return;
         }
         setavailable(available - price);
+        toast("Player Selected");
         setselectedPlayer([...selectedPlayer,Player]);
     }
     return (
